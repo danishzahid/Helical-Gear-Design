@@ -23,10 +23,6 @@ h1 {
     padding: 0.3rem;
 }
 
-#power:hover, #n1:hover, #n2:hover, #i:hover, #alpha:hover, #beta:hover {
-    background-color: bisque;
-}
-#power, #n1, #n2, #i, #alpha, #beta
 #check-btn {
     max-width: 400px;
     margin: auto;
