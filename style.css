@@ -23,6 +23,10 @@ h1 {
     padding: 0.3rem;
 }
 
+#power:hover, #n1:hover, #n2:hover, #i:hover, #alpha:hover, #beta:hover {
+    background-color: blanchedalmond;
+}
+
 #check-btn {
     max-width: 400px;
     margin: auto;
@@ -32,6 +36,6 @@ h1 {
 }
 
 #check-btn:hover {
-    border: 2px solid brown;
     background-color: white;
+    border: 2px solid brown;
 }
