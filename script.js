@@ -8,7 +8,7 @@
     const mnValues = [1, 1.25, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10, 12, 16, 20];
 
     const materialSelection = {
-        ilessThanEquak4: {
+        ilessThanEqual4: {
             sigmaB1: 400,
             sigmaC1: 1100,
             sigmaB2: 320,
@@ -81,14 +81,15 @@
     }
 
     function calculateZ1Z2(z1) {
-        z2 = Math.round(i * z1);
+        z2 = Math.round(Number(i) * Number(z1));
 
         actualI = z2 / z1;
         actualN2 = n1 / actualI;
 
         if (n2 - 10 <= actualN2 && actualN2 <= n2 + 10) {
             return;
-        } else {
+        }
+        else {
             z1 = z1 + 2;
             calculateZ1Z2(z1);
         }
@@ -100,7 +101,7 @@
 
     function calculateB() {
         b = sm * mn;
-        console.log(sm, mn)
+        console.log(b,((Math.PI * mn) / Math.sin(betaRad)).toFixed(2),sm, mn)
         if (b < ((Math.PI * mn) / Math.sin(betaRad))) {
             sm += 2;
             calculateB(sm);
@@ -241,6 +242,7 @@ console.log(factor, dh1)
 
         betaRad = +beta * (Math.PI / 180)
         alphaSelect = document.getElementById("alpha").value;
+        //alphaSelect =  20;
 
         switch (alphaSelect) {
             case 'full20':
@@ -304,7 +306,7 @@ console.log(factor, dh1)
 
         var selectedMaterial;
         if (actualI <= 4) {
-            selectedMaterial = materialSelection.ilessThanEquak4;
+            selectedMaterial = materialSelection.ilessThanEqual4;
         } else {
             selectedMaterial = materialSelection.iGreaterThan4;
         }
