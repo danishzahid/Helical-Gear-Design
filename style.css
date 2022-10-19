@@ -2,12 +2,12 @@ h1 {
     color: brown;
 }
 
-#output-bx {
+/* #output-bx {
     margin-top: 0.5rem;
     padding: 0.5rem;
     background-color: white;
     color: black;
-}
+} */
 
 .container {
     display: flex;
