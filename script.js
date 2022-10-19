@@ -101,7 +101,8 @@
 
     function calculateB() {
         b = sm * mn;
-        console.log(b,((Math.PI * mn) / Math.sin(betaRad)).toFixed(2),sm, mn)
+        console.log(b,((Math.PI * mn) / Math.sin(betaRad)).toFixed(2),sm, mn);  //1st console
+        console1.innerText = "b is "+b+" ,((Math.PI * mn) / Math.sin(betaRad)) is "+((Math.PI * mn) / Math.sin(betaRad)).toFixed(2)+" ,sm = "+sm+ " ,mn = "+ mn ;
         if (b < ((Math.PI * mn) / Math.sin(betaRad))) {
             sm += 2;
             calculateB(sm);
@@ -169,10 +170,12 @@
 
         major = Math.cbrt((64 * Zxx) / Math.PI);
         minor = major / 2;
-console.log(factor, dh1)
+console.log(factor, dh1)//@2nd Console
+        console2.innerText = "Factor is "+factor+" and dh1 is "+dh1;
         // check for na*major <= pie*dh1   true= nothing   false increase dh1  dh1=1.8*ds1  dh1=2*ds1 
         if ((na * major) <= (Math.PI * dh1)) {
-            console.log(`Hub Dia: ${dh1}, Hub Length: ${lh1}, Number of arms: ${na}, Major axis (a): ${major}, Minor axis (c): ${minor}`)
+            console.log(`Hub Dia: ${dh1}, Hub Length: ${lh1}, Number of arms: ${na}, Major axis (a): ${major}, Minor axis (c): ${minor}`) //3rd console
+            console3.innerText = `Hub Dia: ${dh1}, Hub Length: ${lh1}, Number of arms: ${na}, Major axis (a): ${major}, Minor axis (c): ${minor}`;
             return;
         } else {
             calculateDh1(factor + 0.2, d1, sigmaB);
@@ -193,7 +196,8 @@ console.log(factor, dh1)
             } else {
                 outpString = `${type} is integrated with shaft.`
             }
-            console.log(outpString)
+            console.log(outpString) //4th console
+            console4.innerText = outpString;
         } else if (d1 > 200 && d1 <= 500) {   // web construction
             dh1 = 2 * ds1;//hub dia
             lh1 = 1.6 * ds1;//hub length
@@ -216,12 +220,15 @@ console.log(factor, dh1)
 
             holeDia = (D1 - dh1) / 5;
             pcdOfHole = (D1 + dh1) / 2;
-            console.log("hub dia=", dh1, "hub length=", lh1, "inner rim dia", D1, "rim thickess", rt1, "web thickness=", wt1);
-            console.log(`${type} ${outpString}`, "hole dia=", holeDia, " PCD of hole=", pcdOfHole);
+            console.log("hub dia=", dh1, "hub length=", lh1, "inner rim dia", D1, "rim thickess", rt1, "web thickness=", wt1); //5th console
+            console5.innerText = "hub dia = "+ dh1 +", hub length= "+lh1 +" ,inner rim dia : "+ D1+ " , rim thickess : "+rt1+ " , web thickness="+ wt1 ;
+            console.log(`${type} ${outpString}`, "hole dia=", holeDia, " PCD of hole=", pcdOfHole);//6th console
+            console6.innerText = `${type} ${outpString}`+ ",hole dia= "+ holeDia+ ", PCD of hole= "+ pcdOfHole;
         } else {
             // arm construction    new var na, fb, mb, Zxx, major, minor
             outpString = "Arm construction"
-            console.log(`---${outpString}---`)
+            console.log(`---${outpString}---`) //7th console
+            console7.innerText = `---${outpString}---`;
             D1 = da1 - (10 * mn);//inner rim dia
 
             calculateDh1(1.6, D1, sigmaB1);
@@ -231,7 +238,22 @@ console.log(factor, dh1)
         }
 
     }
-
+    const console1 = document.querySelector("#console1");
+    const console2 = document.querySelector("#console2");
+    const console3 = document.querySelector("#console3");
+    const console4 = document.querySelector("#console4");
+    const console5 = document.querySelector("#console5");
+    const console6 = document.querySelector("#console6");
+    const console7 = document.querySelector("#console7");
+    const console8 = document.querySelector("#console8");
+    const console9 = document.querySelector("#console9");
+    const console10 = document.querySelector("#console10");
+    const console11 = document.querySelector("#console11");
+    const console12 = document.querySelector("#console12");
+    const console13 = document.querySelector("#console13");
+    const console14 = document.querySelector("#console14");
+    const console15 = document.querySelector("#console15");
+    const console16 = document.querySelector("#console16");
     document.getElementById("check-btn").addEventListener('mouseup', (e) => {
         power = document.getElementById("power").value;
         beta = document.getElementById("beta").value || 15;
@@ -341,7 +363,8 @@ console.log(factor, dh1)
         checkFsAndFdAndFw();
 
 
-        console.log(fs, fd * 10, fw, sm, mn)
+        console.log(fs, fd * 10, fw, sm, mn)//8th console
+        console8.innerText = "fs: "+fs+" ,fd*10: "+fd*10+" ,fw: "+fw+" ,sm: "+sm+" ,mn: "+mn;
 
         da1 = ((z1 / Math.cos(betaRad)) + (2 * f0Values[alphaSelect])) * mn;
         da2 = ((z2 / Math.cos(betaRad)) + (2 * f0Values[alphaSelect])) * mn;
@@ -354,13 +377,21 @@ console.log(factor, dh1)
         centerdis = (mn / Math.cos(betaRad)) / ((z1 + z2) / 2);
 
         console.log("Alpha ", alpha);
+        console9.innerText = "Alpha : "+alpha;
         console.log("No. of teeth on pinion=", z1, " no. of teeth on gear=", z2);
+        console10.innerText = "No. of teeth on pinion="+ z1+ " no. of teeth on gear="+ z2;
         console.log("norml module=", mn);
+        console11.innerText = "norml module="+ mn;
         console.log("Face width=", b);
+        console12.innerText = "Face width="+ b;
         console.log("PCD of pinion d1=", d1, " PCD of gear d2=", d2);
+        console13.innerText = "PCD of pinion d1="+ d1+ " PCD of gear d2="+ d2;
         console.log("Tip dia of pinion da1=", da1, " Tip dia of gear da2=", da2);
+        console14.innerText = "Tip dia of pinion da1="+ da1+ " Tip dia of gear da2="+ da2;
         console.log("Root dia of pinion df2=", df2, " Root dia of gear df2=", df2);
+        console15.innerText = "Root dia of pinion df2="+ df2+ " Root dia of gear df2="+ df2;
         console.log("Center distance a=", centerdis);
+        console16.innerText = "Center distance a="+ centerdis;
 
         gearConstruction(mt1, d1, df1, da1, sigmaB = selectedMaterial.sigmaB1, 'Pinion');
         gearConstruction(mt2, d2, df2, da2, sigmaB = selectedMaterial.sigmaB2, 'Gear');
